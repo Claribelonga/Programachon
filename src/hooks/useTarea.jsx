@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function useTarea(){
     const [titulo, setTitulo] = useState("");
     const [prioridad, setPrioridad] = useState("");
-    const [categoria, setCategoria] = useState("");
+    const [categoria, setCategoria] = useState("hogar");
     const [estado, setEstado] = useState("pendiente");
 
     const setDato = (campo, valor) => {
