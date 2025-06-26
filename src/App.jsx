@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Formulario from './componentes/Formulario';
 import NavFiltros from './componentes/NavFiltros';
+import Listado from './componentes/Listado';
 import useTarea from "./hooks/useTarea";
 import './App.css'
 
@@ -17,10 +18,16 @@ function App() {
 
   const guardarTarea = (tarea) =>{
     const tareasNuevo = [...tareas];
-    tareasNuevo.push({...tareas, id});
+    tareasNuevo.push({...tarea, id});
     console.log(tareasNuevo);
     setTarea(tareasNuevo);
     setId(id + 1);
+  }
+  const eliminarTarea = (tareaId) => {
+    const tareasNuevo = [...tareas];
+    const position = tareasNuevo.findIndex((tarea) => tarea.id === tareaId);
+    tareasNuevo.splice(position, 1);
+    setTarea(tareasNuevo);
   }
 
   return(
@@ -32,6 +39,10 @@ function App() {
       />
       }
       <NavFiltros
+      />
+      <Listado
+      tareas = {tareas}
+      eliminarTarea={(tareaId) => eliminarTarea(tareaId)}
       />
     </div>
   )

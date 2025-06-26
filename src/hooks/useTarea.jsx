@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function useTarea(){
     const [titulo, setTitulo] = useState("");
-    const [prioridad, setPrioridad] = useState("");
+    const [prioridad, setPrioridad] = useState("urgente");
     const [categoria, setCategoria] = useState("hogar");
     const [estado, setEstado] = useState("pendiente");
 
@@ -22,5 +22,5 @@ export default function useTarea(){
                 break;
         }
     }
-    return [{titulo, prioridad, categoria, estado}, setDato];
+    return [{titulo, categoria, prioridad, estado}, setDato];
 }
