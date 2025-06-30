@@ -1,15 +1,17 @@
 #root {
   max-width: 1280px;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
-  justify-content: center;
 }
 .App{
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
+}
+.listado{
+  width: 800px;
 }
 .Listado{
   display: flex;

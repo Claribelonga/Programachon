@@ -15,12 +15,18 @@ export default function useTarea(){
             case "prioridad": 
                 setPrioridad(valor);
                 break
-            case "cateogria":  
+            case "categoria":  
                 setCategoria(valor);
                 break
             default:
                 break;
         }
     }
-    return [{titulo, categoria, prioridad, estado}, setDato];
+    const limpiarInput = () =>{
+        setTitulo("");
+        setCategoria("hogar");
+        setPrioridad("urgente");
+        setEstado("pendiente");
+    }
+    return [{titulo, categoria, prioridad, estado}, setDato, limpiarInput];
 }

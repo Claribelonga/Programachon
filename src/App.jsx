@@ -30,6 +30,29 @@ function App() {
     setTarea(tareasNuevo);
   }
 
+  const cambiarEstado = (tareaId) =>{
+    console.log("Se cambió el estado de la tarea con id:", tareaId);
+    const tareasNuevo = tareas.map((tarea) =>{
+      if (tarea.id === tareaId){
+        let nuevoEstado = "";
+        switch (tarea.estado){
+          case "pendiente":
+            nuevoEstado = "en proceso";
+            break
+          case "en proceso":
+              nuevoEstado = "finalizado";
+              break;
+          default:
+            nuevoEstado = "pendiente";
+        }
+        console.log("nuevo estado:", nuevoEstado);
+        return{...tarea, estado: nuevoEstado};
+      }
+      return tarea;
+    })
+    setTarea(tareasNuevo);
+  }
+
   return(
     <div className='App'>
       <button onClick={toggleForm}>{showForm ? "Ocultar Formulario" : "Mostrar Formulario"}</button>
@@ -43,6 +66,7 @@ function App() {
       <Listado
       tareas = {tareas}
       eliminarTarea={(tareaId) => eliminarTarea(tareaId)}
+      cambiarEstado={(tareaId) => cambiarEstado(tareaId)}
       />
     </div>
   )
