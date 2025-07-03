@@ -22,8 +22,8 @@ export default function Formulario({guardarTarea}){
                     <option value="trabajo">Trabajo</option>
                 </select>
                 <select name="prioridad" id="priori" value={datos.prioridad} onChange={(e) => setDato("prioridad",e.target.value)}>
-                    <option value="urgente">Urgente</option>
-                    <option value="no-urgente">No Urgente</option>
+                    <option value="1">Urgente</option>
+                    <option value="2">No Urgente</option>
                 </select>
                 <button type="submit" onClick={(e) => mostrarListado(e)}>Guardar</button>
             </form>

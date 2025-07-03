@@ -19,6 +19,7 @@ function App() {
   const guardarTarea = (tarea) =>{
     const tareasNuevo = [...tareas];
     tareasNuevo.push({...tarea, id});
+    tareasNuevo.sort((a, b) => a.prioridad - b.prioridad);
     console.log(tareasNuevo);
     setTarea(tareasNuevo);
     setId(id + 1);

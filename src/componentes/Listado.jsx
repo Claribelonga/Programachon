@@ -4,7 +4,7 @@ function Tarjeta({titulo, prioridad, categoria, estado, eliminar, cambiarEstado}
             <span className="Eliminar" onClick={() => eliminar()}>x</span>
             <span>Titulo: {titulo}</span>
             <span>Categoria: {categoria}</span>
-            <span>Prioridad: {prioridad}</span>
+            <span>Prioridad: {prioridad == 1 ? "urgente" : "no urgente"}</span>
             <span>Estado:</span><button onClick={() => cambiarEstado()}>{estado}</button>
         </div>
     )
