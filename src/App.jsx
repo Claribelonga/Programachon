@@ -14,12 +14,13 @@ function App() {
 
   const [id, setId] = useState(0);
   const [tareas, setTarea] = useState([]);
-  // const [datos, setDato] = useTarea();
+  const [filtroCategoria, setFiltroCategoria] = useState(""); //variable que guarda la categoria seleccionada y la funcion set se utiliza para cambiar ese valor
+  
 
   const guardarTarea = (tarea) =>{
     const tareasNuevo = [...tareas];
     tareasNuevo.push({...tarea, id});
-    tareasNuevo.sort((a, b) => a.prioridad - b.prioridad);
+    tareasNuevo.sort((a, b) => a.prioridad - b.prioridad); //como el if que use anteriormente pero mas corto
     console.log(tareasNuevo);
     setTarea(tareasNuevo);
     setId(id + 1);
@@ -54,6 +55,10 @@ function App() {
     setTarea(tareasNuevo);
   }
 
+  let tareasFiltradas = filtroCategoria
+  ? tareas.filter(tarea => tarea.categoria === filtroCategoria)
+  : tareas;
+
   return(
     <div className='App'>
       <button onClick={toggleForm}>{showForm ? "Ocultar Formulario" : "Mostrar Formulario"}</button>
@@ -63,9 +68,10 @@ function App() {
       />
       }
       <NavFiltros
+      setFiltroCategoria = {setFiltroCategoria}
       />
       <Listado
-      tareas = {tareas}
+      tareas = {tareasFiltradas}
       eliminarTarea={(tareaId) => eliminarTarea(tareaId)}
       cambiarEstado={(tareaId) => cambiarEstado(tareaId)}
       />

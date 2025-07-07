@@ -30,3 +30,4 @@ export default function useTarea(){
     }
     return [{titulo, categoria, prioridad, estado}, setDato, limpiarInput];
 }
+//el datos es el objeto (titulocategoriaprioridadestado)
